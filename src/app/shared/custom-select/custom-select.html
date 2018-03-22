@@ -1,0 +1,11 @@
+<input #mainInput (click)="showSelectList = !showSelectList" [(ngModel)]="selectedItemString" class="custom-input" (blur)="showSelectList = false">
+<!-- Calculate the style.height of the dropdown menu based on the number of children it has. 
+    This dynamic height reduces empty space which would otherwise appear when a small number of children is present -->
+<div *ngIf="showSelectList" #dropdownMenu class="select-window" [style.height]="dropdownMenu.nativeElement ? (60 * dropdownMenu.nativeElement.childElementCount) : 360">
+  <!-- First use the custom ListFilter pipe to check if data properties match user input. 
+        After that use custom ObjKeyIterator to enable iteration over object as if it were an array -->
+  <div *ngFor="let item of data | ListFilter: mainInput.value | ObjKeyIterator" class="select-item" (mousedown)="setSelectedItem(item, data[item])">
+    <div class="item-title">{{item}}</div>
+    <div class="item-details">{{data[item]}}</div>
+  </div>
+</div>

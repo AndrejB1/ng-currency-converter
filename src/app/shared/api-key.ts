@@ -1,0 +1,1 @@
+export const FIXER_API = '780df62565a4884c284db43dd03ecbad';
