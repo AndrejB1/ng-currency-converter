@@ -1,9 +1,12 @@
-<input class="custom-input" [(ngModel)]="baseCurrencyAmount" placeholder="0.00">
-<custom-select [data]="currencyData" (selectionMade)="baseCurrencyCode = $event">
-</custom-select>
-<br/>
-<input class="custom-input" [(ngModel)]="resultCurrencyAmount" disabled>
-<custom-select [data]="currencyData" (selectionMade)="resultCurrencyCode = $event">
-</custom-select>
-<br/>
-<button (click)="convertCurrency()">Convert</button>
+<div class="main-div">
+  <input class="custom-input" [(ngModel)]="baseCurrencyAmount" placeholder="0.00">
+  <custom-select [data]="currencyData" [selectedItemString]="baseCurrencyCode" (selectionMade)="baseCurrencyCode = $event.data">
+  </custom-select>
+  <br/>
+  <input class="custom-input" [(ngModel)]="resultCurrencyAmount" disabled>
+  <custom-select [data]="currencyData" [selectedItemString]="resultCurrencyCode" (selectionMade)="resultCurrencyCode = $event.data">
+  </custom-select>
+  <br/>
+  <button (click)="convertCurrency()"><i class="fa fa-money"></i>Convert</button>
+  <button (click)="switchCurrency()"><i class="fa fa-refresh"></i>Swap Currency</button>
+</div>

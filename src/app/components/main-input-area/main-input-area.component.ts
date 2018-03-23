@@ -1,14 +1,16 @@
-import { Component, OnInit } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { FIXER_API } from 'app/shared/api-key';
 
 @Component({
     selector: 'main-input-area',
-    templateUrl: './main-input-area.component.html'
+    templateUrl: './main-input-area.component.html',
+    styleUrls: ['./main-input-area.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class MainInputArea implements OnInit {
 
-    baseCurrencyAmount: string;
+    baseCurrencyAmount: number;
     baseCurrencyCode: string;
     resultCurrencyAmount: string;
     resultCurrencyCode: string;
@@ -23,7 +25,10 @@ export class MainInputArea implements OnInit {
     }
 
     getData() {
-        this.http.get('http://data.fixer.io/api/symbols?access_key=' + FIXER_API).subscribe((results: any) => {
+        const params = {
+            access_key: FIXER_API
+        };
+        this.http.get('http://data.fixer.io/api/symbols', { params: params }).subscribe((results: any) => {
             this.currencyData = results.symbols;
         });
     }
@@ -34,12 +39,20 @@ export class MainInputArea implements OnInit {
         }
         const params = {
             access_key: FIXER_API,
-            from: this.baseCurrencyCode,
-            to: this.resultCurrencyAmount,
-            amount: this.baseCurrencyAmount
-        }
-        this.http.get('http://data.fixer.io/api/convert', {params: params}).subscribe((results: any) => {
-            this.currencyData = results.symbols;
+            base: this.baseCurrencyCode,
+            symbols: [this.resultCurrencyCode]
+        };
+        this.http.get('http://data.fixer.io/api/latest', { params: params }).subscribe((results: any) => {
+            const resultCurrencyAmount = results.rates[this.resultCurrencyCode] * this.baseCurrencyAmount;
+            this.resultCurrencyAmount = parseFloat(resultCurrencyAmount.toString()).toFixed(2);
         });
+    }
+
+    switchCurrency() {
+        [this.baseCurrencyCode, this.resultCurrencyCode] = [ this.resultCurrencyCode, this.baseCurrencyCode];
+    }
+
+    convertToCurrencyFloat(value: number) {
+       // return +(Math.round(value + 'e+2') + 'e-2');
     }
 }

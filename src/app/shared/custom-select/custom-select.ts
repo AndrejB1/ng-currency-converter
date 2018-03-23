@@ -9,11 +9,11 @@ import { FIXER_API } from 'app/shared/api-key';
 export class CustomSelect {
 
     @Input() data: any; // Data which will go into the dropdown list.
-    @Output() selectionMade = new EventEmitter(); // Notify the parent when an item has been selected.
 
     // Variables for storing manually selected items from the dropdownMenu;
-    selectedItemString: string;
-    selectedItemAdditionalData: string;
+    @Input() selectedItemString: string;
+    @Input() selectedItemAdditionalData: string; // Optional variable to store extra data from list, such as the country of origin for chosen Currency code
+    @Output() selectionMade = new EventEmitter(); // Notify the parent when an item has been selected.
 
     showSelectList = false;
 
