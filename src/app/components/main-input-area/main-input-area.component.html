@@ -32,7 +32,7 @@
     </div>
     <div class="button-container-single">
       <button *ngIf="!graphShown" (click)="viewGraph()" class="graph-button"><i class="fa fa-line-chart"></i>Show 30-Day Progression</button>
-      <button *ngIf="graphShown" (click)="graphShown = false" class="graph-button"><i class="fa fa-line-chart"></i>Hide 30-Day Progression</button>
+      <button *ngIf="graphShown" (click)="graphShown = false; labelShown = false;" class="graph-button"><i class="fa fa-line-chart"></i>Hide 30-Day Progression</button>
     </div>
   </div>
   <div class="block-part right">

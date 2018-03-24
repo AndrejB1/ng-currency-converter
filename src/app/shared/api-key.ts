@@ -1,1 +1,1 @@
-export const FIXER_API = '780df62565a4884c284db43dd03ecbad';
+export const FIXER_API = '93d1cccb900235fef420045e1b09b12f' // '780df62565a4884c284db43dd03ecbad'; - Try this if original fails.

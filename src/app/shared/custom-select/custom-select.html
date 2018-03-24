@@ -1,4 +1,5 @@
-<input #mainInput (click)="showSelectList = !showSelectList" [(ngModel)]="selectedItemString" class="custom-input" (blur)="showSelectList = false">
+<input #mainInput (click)="showSelectList = !showSelectList" [(ngModel)]="selectedItemString"
+      class="custom-input" (blur)="showSelectList = false" (keydown)="showSelectList = true">
 <!-- Calculate the style.height of the dropdown menu based on the number of children it has. 
     This dynamic height reduces empty space which would otherwise appear when a small number of children is present -->
 <div *ngIf="showSelectList" #dropdownMenu class="select-window" [style.height]="dropdownMenu.nativeElement ? (60 * dropdownMenu.nativeElement.childElementCount) : 360">
