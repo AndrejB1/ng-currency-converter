@@ -4,13 +4,19 @@
     width: 100%;
     z-index: 2;
     .input-area {
-        // padding-bottom: 50px;
         position: absolute;
-        // width: 33%;
-        margin: 0 33%;
-        // left: 33%;
         top: 130px;
         min-width: 450px;
+        -webkit-transition: left 1s;
+        transition: left 1s;
+    }
+
+    .left-third {
+        left: 33%;
+    }
+
+    .left-tenth {
+        left: 5%;
     }
 }
 

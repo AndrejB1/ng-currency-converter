@@ -4,25 +4,9 @@
 @import 'assets/scss/scrollbar.scss';
 
 body {
-    @extend .background-img;
-}
-
-// Frosted glass effect makes background look blurry and white-ish
-.glass {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-    background-color: white;
-    clip-path: inset(130px 33% 40% 33% round 10px);
-    &::before {
-        @extend .background-img;
-        opacity: 0.55;
-        filter: blur(5px);
-        display: block;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        content: '';
-    }
+    background:  url('assets/sky.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

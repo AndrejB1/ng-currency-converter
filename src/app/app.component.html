@@ -1,22 +1,6 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<navbar></navbar>
 <div class="main-background">
-  <div #main class="input-area">
-    <main-input-area (graphToggled)="graphToggled()"></main-input-area>
+  <div #main class="input-area" [class.left-third]="!graphActive" [class.left-tenth]="graphActive">
+    <main-input-area (graphToggled)="graphToggled($event)"></main-input-area>
   </div>
 </div>
-<div #glass class="glass"></div>
-
-
-<!--router-outlet></router-outlet
-
-{
-  "base": USD,
-  "date": "2018-02-13",
-  "rates": {
-     "CAD": 1.260046,
-     "CHF": 0.933058,
-     "EUR": 0.806942,
-     "GBP": 0.719154,
-     [170 world currencies]
-  }
-} -->

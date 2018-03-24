@@ -3,35 +3,38 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { Navbar } from "./components/navbar/navbar.component";
 import { MainInputArea } from './components/main-input-area/main-input-area.component';
-import { GraphComponent } from './components/graph/graph.component';
+
 import { GraphWrapper } from "./shared/graph-wrapper/graph-wrapper.component";
 import { CustomSelect } from './shared/custom-select/custom-select';
 import { ListFilter } from './shared/pipes/list-filter/list-filter';
 import { ObjKeyIterator } from './shared/pipes/obj-key-iterator/obj-key-iterator';
+import { DateFormatterService } from "./shared/services/date-formatter.service";
 
 import { ChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MainInputArea,
-    GraphComponent,
+    // Custom components
+    Navbar,
     GraphWrapper,
     CustomSelect,
+    // Pipes
     ObjKeyIterator,
     ListFilter
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
     HttpClientModule,
     ChartsModule
   ],
-  providers: [],
+  providers: [DateFormatterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

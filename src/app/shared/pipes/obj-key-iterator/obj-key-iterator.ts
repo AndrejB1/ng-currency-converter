@@ -6,7 +6,7 @@ export class ObjKeyIterator implements PipeTransform {
         if (value) {
             let item: Object = new Object();
             item = Object.keys(value);
-            return item; // .map(key => value[key]);
+            return item;
         }
         return null;
     }

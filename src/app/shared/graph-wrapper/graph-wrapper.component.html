@@ -1,4 +1,4 @@
-<div style="display: block;">
-    <canvas baseChart width="450" height="300" class="chart" [datasets]="datasets" [labels]="labels" [options]="options" [chartType]="'line'">
+<div *ngIf="datasets.length > 0 && labels.length > 0" class="graph-container">
+    <canvas baseChart width="700px" max-height="400px" class="chart" [datasets]="datasets" [labels]="labels" [options]="options" [chartType]="'line'">
     </canvas>
 </div>
