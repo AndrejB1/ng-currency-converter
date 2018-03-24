@@ -1,0 +1,13 @@
+
+// Background image as variable makes it easier to switch images 
+// for both the main background and the frosted glass effect.
+.background-img {
+    background:  url('assets/5704.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+$border-color: #3FAEAE;
+$text-color: darkcyan;

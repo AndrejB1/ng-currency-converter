@@ -1,7 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="main-background">
-  <main-input-area class="input-area"></main-input-area>
+  <div #main class="input-area">
+    <main-input-area (graphToggled)="graphToggled()"></main-input-area>
+  </div>
 </div>
+<div #glass class="glass"></div>
+
 
 <!--router-outlet></router-outlet
 

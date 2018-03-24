@@ -1,18 +1,22 @@
+
 .custom-input {
+    // width: 200px;
+    width: 60%;
     height: 30px;
     padding: 0px 10px;
     text-align: right;
-    font-family: 'Roboto-Light';
+    font-family: 'Roboto';
     font-size: 20px;
     border-radius: 5px;
-    border: 2px solid lightgray;
+    border: 2px solid $border-color;
     margin-bottom: 1.5rem;
     margin-right: 1rem;
+    color: $text-color;
     &:disabled {
         background: none;
         border-radius: 0;
         border-color: transparent;
-        border-bottom: 2px solid lightgray;
+        border-bottom: 2px solid $border-color;
     }
 }
 
@@ -20,11 +24,12 @@ custom-select {
     display: inline-block;
     height: 30px;
     position: relative;
-    font-family: 'Roboto-Light';
+    font-family: 'Roboto';
     text-align: left;
     .custom-input {
+        text-align: center;
         width: 50px;
-        background-color: lightgray;
+        background-color: white;
     }
     .select-window {
         z-index: 2;
